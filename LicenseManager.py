@@ -21,7 +21,7 @@ def verify():
     # MD5 hash
     hash_object = MD5.new(decrypted_message)
     
-    # private key ile signing işlemi
+    # signing with private key
     signature = pkcs1_15.new(private_key).sign(hash_object)
     print(f"Server -- MD5 Plain License Text: {hash_object.hexdigest()}")
     print(f"Server -- Digital Signature: {signature.hex()}")
@@ -32,5 +32,4 @@ def running():
 
 
 if __name__ == "__main__":
-    # DO NOT CHANGE BELOW
     app.run(host='0.0.0.0', port=5000, debug=True)
